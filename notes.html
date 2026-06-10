@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compact Notes | QuranTajwidOnline.com</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-navy: #1B3A4B;
+            --accent-gold: #D4AF37;
+            --soft-beige: #F5F5DC;
+            --calm-green: #2E8B57;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--soft-beige);
+            /* Consistent batik background */
+            background-image: url('https://www.transparenttextures.com/patterns/arabesque.png'); 
+            color: #333;
+        }
+
+        .navbar-custom { background-color: var(--primary-navy); }
+        .navbar-custom .navbar-brand, .navbar-custom .nav-link { color: #ffffff; }
+        .navbar-custom .nav-link:hover { color: var(--accent-gold); }
+
+        .page-header {
+            background-color: var(--primary-navy);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .note-card {
+            border: none;
+            border-top: 4px solid var(--accent-gold);
+            transition: transform 0.3s;
+        }
+        .note-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .thumbnail-placeholder {
+            height: 150px;
+            background-color: var(--calm-green);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .btn-gold {
+            background-color: var(--accent-gold);
+            color: #fff;
+            border: none;
+        }
+        .btn-gold:hover { background-color: #b5952f; color: #fff; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="online-mengaji.html">QuranTajwidOnline</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="online-mengaji.html">Online Mengaji</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tajwid-learning.html">Tajwid Learning</a></li>
+                    <li class="nav-item"><a class="nav-link" href="live-class.html">Live Class</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="notes.html">Notes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="practice.html">Practice & Quizzes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ebooks.html">E-Books</a></li>
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Discover More
+    </a>
+    <ul class="dropdown-menu shadow-sm" aria-labelledby="navbarDropdown" style="border-top: 3px solid var(--accent-gold);">
+        <li><a class="dropdown-item" href="about.html">About Us</a></li>
+        <li><a class="dropdown-item" href="ustaz-profile.html">Meet Our Instructors</a></li>
+        <li><a class="dropdown-item" href="testmonials.html">Testimonials</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+    </ul>
+</li>
+                    <li class="nav-item"><a class="nav-link btn btn-gold ms-2 px-3" href="registration.html">Register Now</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1 class="fw-bold">Compact Notes</h1>
+            <p class="lead">Downloadable quick-reference guides for your revision</p>
+        </div>
+    </header>
+
+    <div class="container mb-5">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            
+            <div class="col">
+                <div class="card h-100 shadow-sm note-card">
+                    <div class="thumbnail-placeholder">Makharij Map</div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-success">Basic Makharij Huruf Guide</h5>
+                        <p class="card-text text-muted small">A visual map of the mouth and throat indicating the precise articulation points for all Arabic letters.</p>
+                        <a href="Makhraj_Map.pdf" download class="btn btn-outline-success mt-auto">Download PDF</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm note-card">
+                    <div class="thumbnail-placeholder">Nun Sakinah Matrix</div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-success">Nun Sakinah & Tanwin</h5>
+                        <p class="card-text text-muted small">A simplified table breaking down the letters that trigger Izhar, Idgham, Iqlab, and Ikhfa.</p>
+                        <a href="Nun_Sakinah_Matrix.pdf" download class="btn btn-outline-success mt-auto">Download PDF</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm note-card">
+                    <div class="thumbnail-placeholder">Mad Flowchart</div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-success">Rules of Mad Overview</h5>
+                        <p class="card-text text-muted small">A comprehensive flowchart distinguishing between Mad Asli and the various branches of Mad Far'i.</p>
+                        <a href="Mad_Flowchart.pdf" download class="btn btn-outline-success mt-auto">Download PDF</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Room | QuranTajwidOnline.com</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-navy: #1B3A4B;
+            --accent-gold: #D4AF37;
+            --soft-beige: #F5F5DC;
+            --calm-green: #2E8B57;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--soft-beige);
+            background-image: url('https://www.transparenttextures.com/patterns/arabesque.png'); 
+            color: #333;
+        }
+
+        .navbar-custom { background-color: var(--primary-navy); }
+        .navbar-custom .navbar-brand, .navbar-custom .nav-link { color: #ffffff; }
+        .navbar-custom .nav-link:hover { color: var(--accent-gold); }
+
+        .page-header {
+            background-color: var(--primary-navy);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-tabs .nav-link { color: var(--primary-navy); font-weight: bold; }
+        .nav-tabs .nav-link.active { color: var(--calm-green); border-bottom: 3px solid var(--calm-green); }
+        
+        .practice-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: none;
+        }
+
+        .btn-gold { background-color: var(--accent-gold); color: #fff; border: none; }
+        .btn-gold:hover { background-color: #b5952f; color: #fff; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="online-mengaji.html">QuranTajwidOnline</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="online-mengaji.html">Online Mengaji</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tajwid-learning.html">Tajwid Learning</a></li>
+                    <li class="nav-item"><a class="nav-link" href="live-class.html">Live Class</a></li>
+                    <li class="nav-item"><a class="nav-link" href="notes.html">Notes</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="practice.html">Practice & Quizzes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ebooks.html">E-Books</a></li>
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Discover More
+    </a>
+    <ul class="dropdown-menu shadow-sm" aria-labelledby="navbarDropdown" style="border-top: 3px solid var(--accent-gold);">
+        <li><a class="dropdown-item" href="about.html">About Us</a></li>
+        <li><a class="dropdown-item" href="ustaz-profile.html">Meet Our Instructors</a></li>
+        <li><a class="dropdown-item" href="testmonials.html">Testimonials</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+    </ul>
+</li>
+                    <li class="nav-item"><a class="nav-link btn btn-gold ms-2 px-3" href="registration.html">Register Now</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1 class="fw-bold">Interactive Practice Room</h1>
+            <p class="lead">Apply what you've learned through active exercises</p>
+        </div>
+    </header>
+
+    <div class="container mb-5">
+        <ul class="nav nav-tabs" id="practiceTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#identification">Rule Identification</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#pronunciation">Pronunciation Audio</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#worksheets">Worksheets</button>
+            </li>
+        </ul>
+
+        <div class="tab-content practice-box" id="practiceTabsContent">
+            
+            <div class="tab-pane fade show active" id="identification">
+                <h4 class="text-success mb-3">Tajwid Rule Identification</h4>
+                <p>Examine the following verse. Identify the tajwid rules applied to the highlighted words.</p>
+                <div class="p-4 bg-light rounded text-center mb-4 border">
+                    <h2 class="text-dark" dir="rtl" lang="ar">مِنْ شَرِّ مَا خَلَقَ</h2>
+                    <p class="text-muted mt-2">Hint: Look at the Nun Sakinah followed by the letter Shin.</p>
+                </div>
+                <button class="btn btn-outline-primary">Reveal Answer: Ikhfa Haqiqi</button>
+            </div>
+
+            <div class="tab-pane fade" id="pronunciation">
+                <h4 class="text-success mb-3">Listen & Repeat: Pronunciation Practice</h4>
+                <p>Listen to the Ustaz and practice your Qalqalah (echoing) sounds.</p>
+                <div class="d-flex align-items-center mb-3 p-3 border rounded">
+                    <div class="me-4">
+                        <h5 dir="rtl" lang="ar">قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ</h5>
+                        <small class="text-muted">Focus on the 'Qaf' at the end.</small>
+                    </div>
+                    <div class="ms-auto">
+                        <audio controls>
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="worksheets">
+                <h4 class="text-success mb-3">Printable Worksheets</h4>
+                <p>Download these exercises to practice tracing and identifying rules offline.</p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Tracing Arabic Letters (Beginner)
+                        <button class="btn btn-sm btn-outline-success">Download PDF</button>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Color-Coding Tajwid Rules (Intermediate)
+                        <button class="btn btn-sm btn-outline-success">Download PDF</button>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        
+        <div class="text-center mt-5">
+            <h5 class="mb-3">Ready to test your knowledge?</h5>
+            <a href="quiz.html" class="btn btn-gold btn-lg">Go to Quizzes</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

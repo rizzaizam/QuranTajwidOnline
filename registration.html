@@ -86,71 +86,116 @@
                     <h2 class="text-center mb-4" style="color: var(--primary-navy);">Student Registration & Inquiry</h2>
                     <p class="text-center text-muted mb-4">Fill out the form below to enroll or inquire about our online classes.</p>
                     
-                    <!-- UPDATE: Form action is connected to Formspree, and method is set to POST -->
-<form action="https://formspree.io/f/mnjylvjl" method="POST">
-    <div class="row g-3">
-        <div class="col-md-8">
-            <label for="studentName" class="form-label">Student Full Name</label>
-            <!-- CRITICAL: Added name="student_name" so data is captured -->
-            <input type="text" class="form-control" id="studentName" name="student_name" required>
-        </div>
-        <div class="col-md-4">
-            <label for="studentAge" class="form-label">Age</label>
-            <!-- CRITICAL: Added name="age" -->
-            <input type="number" class="form-control" id="studentAge" name="age" required>
-        </div>
-        <div class="col-12">
-            <label for="guardianName" class="form-label">Guardian Name (If student is under 18)</label>
-            <!-- CRITICAL: Added name="guardian_name" -->
-            <input type="text" class="form-control" id="guardianName" name="guardian_name">
-        </div>
-        <div class="col-md-6">
-            <label for="email" class="form-label">Email Address</label>
-            <!-- CRITICAL: Added name="email" -->
-            <input type="email" class="form-control" id="email" name="email" required>
-        </div>
-        <div class="col-md-6">
-            <label for="phone" class="form-label">Phone / WhatsApp Number</label>
-            <!-- CRITICAL: Added name="phone" -->
-            <input type="tel" class="form-control" id="phone" name="phone" required>
-        </div>
-        <div class="col-md-6">
-            <label for="currentLevel" class="form-label">Current Quran Level</label>
-            <!-- CRITICAL: Added name="current_level" -->
-            <select id="currentLevel" name="current_level" class="form-select">
-                <option selected disabled>Choose...</option>
-                <option>Beginner (Iqra)</option>
-                <option>Intermediate (Basic Tajwid)</option>
-                <option>Advanced (Fluency/Tarannum)</option>
-            </select>
-        </div>
-        <div class="col-md-6">
-            <label for="preferredClass" class="form-label">Preferred Class Category</label>
-            <!-- CRITICAL: Added name="preferred_class" -->
-            <select id="preferredClass" name="preferred_class" class="form-select">
-                <option selected disabled>Choose...</option>
-                <option>Iqra Class</option>
-                <option>Beginner Quran Reading</option>
-                <option>Adult Beginner Class</option>
-                <option>Quran Recitation</option>
-                <option>Fluency Improvement</option>
-            </select>
-        </div>
-        <div class="col-12">
-            <label for="message" class="form-label">Additional Message or Questions</label>
-            <!-- CRITICAL: Added name="message" -->
-            <textarea class="form-control" id="message" name="message" rows="4"></textarea>
-        </div>
-        <div class="col-12 text-center mt-4">
-            <button type="submit" class="btn btn-gold btn-lg w-100">Submit Registration</button>
-        </div>
+<!-- Success Message Container (Hidden by default using display: none) -->
+<div id="successMessage" class="text-center p-5 my-4 bg-white rounded shadow-sm border border-success" style="display: none; border-top: 5px solid var(--calm-green) !important;">
+    <div class="mb-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="var(--calm-green)" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8A7 7 0 1 1 0 8a7 7 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </svg>
     </div>
-</form>
+    <h3 class="fw-bold text-success">Registration Received!</h3>
+    <p class="lead mb-0 text-muted">Thank you for registering. Our team will contact you via WhatsApp or Email within 24 hours to finalize your class placement.</p>
+</div>
+
+<!-- Form Container -->
+<div id="formContainer">
+    <form id="registrationForm" action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST">
+        <div class="row g-3">
+            <div class="col-md-8">
+                <label for="studentName" class="form-label">Student Full Name</label>
+                <input type="text" class="form-control" id="studentName" name="student_name" required>
+            </div>
+            <div class="col-md-4">
+                <label for="studentAge" class="form-label">Age</label>
+                <input type="number" class="form-control" id="studentAge" name="age" required>
+            </div>
+            <div class="col-12">
+                <label for="guardianName" class="form-label">Guardian Name (If student is under 18)</label>
+                <input type="text" class="form-control" id="guardianName" name="guardian_name">
+            </div>
+            <div class="col-md-6">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="col-md-6">
+                <label for="phone" class="form-label">Phone / WhatsApp Number</label>
+                <input type="tel" class="form-control" id="phone" name="phone" required>
+            </div>
+            <div class="col-md-6">
+                <label for="currentLevel" class="form-label">Current Quran Level</label>
+                <select id="currentLevel" name="current_level" class="form-select">
+                    <option selected disabled>Choose...</option>
+                    <option>Beginner (Iqra)</option>
+                    <option>Intermediate (Basic Tajwid)</option>
+                    <option>Advanced (Fluency/Tarannum)</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="preferredClass" class="form-label">Preferred Class Category</label>
+                <select id="preferredClass" name="preferred_class" class="form-select">
+                    <option selected disabled>Choose...</option>
+                    <option>Iqra Class</option>
+                    <option>Beginner Quran Reading</option>
+                    <option>Adult Beginner Class</option>
+                    <option>Quran Recitation</option>
+                    <option>Fluency Improvement</option>
+                </select>
+            </div>
+            <div class="col-12">
+                <label for="message" class="form-label">Additional Message or Questions</label>
+                <textarea class="form-control" id="message" name="message" rows="4"></textarea>
+            </div>
+            <div class="col-12 text-center mt-4">
+                <button type="submit" id="submitBtn" class="btn btn-gold btn-lg w-100">Submit Registration</button>
+            </div>
+        </div>
+    </form>
+</div>
                 </div>
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const form = document.getElementById('registrationForm');
+        const formContainer = document.getElementById('formContainer');
+        const successMessage = document.getElementById('successMessage');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault(); // Stop the page from reloading
+            
+            // Change button state to loading
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Sending...";
+
+            // Gather data and send to Formspree
+            const formData = new FormData(form);
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    // Hide the form smoothly, show the custom success message card
+                    formContainer.style.display = 'none';
+                    successMessage.style.display = 'block';
+                    successMessage.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    alert("Oops! There was a problem submitting your form. Please try again.");
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = "Submit Registration";
+                }
+            } catch (error) {
+                alert("Connection error. Please check your internet network and try again.");
+                submitBtn.disabled = false;
+                submitBtn.innerText = "Submit Registration";
+            }
+        });
+    </script>
 </body>
 </html>

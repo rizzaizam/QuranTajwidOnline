@@ -1,6 +1,15 @@
 const questions = [
     {
-        question: "What is the correct emission point (Makhraj) for the letter 'Ba' (ب)?",
+        question: "1. What does the word 'Tajwid' literally mean?",
+        answers: [
+            { text: "To memorize", correct: false },
+            { text: "To improve or make better", correct: true },
+            { text: "To read quickly", correct: false },
+            { text: "To stop", correct: false }
+        ]
+    },
+    {
+        question: "2. What is the correct emission point (Makhraj) for the letter 'Ba' (ب)?",
         answers: [
             { text: "The throat", correct: false },
             { text: "The lips", correct: true },
@@ -9,12 +18,48 @@ const questions = [
         ]
     },
     {
-        question: "Which of these is a rule of Nun Sakinah?",
+        question: "3. Which rule applies when Nun Sakinah or Tanwin is followed by the letter 'Ba' (ب)?",
         answers: [
-            { text: "Qalqalah", correct: false },
-            { text: "Idgham", correct: true },
-            { text: "Mad", correct: false },
-            { text: "Waqaf", correct: false }
+            { text: "Iqlab (Changing)", correct: true },
+            { text: "Idgham (Merging)", correct: false },
+            { text: "Izhar (Clarity)", correct: false },
+            { text: "Ikhfa (Hiding)", correct: false }
+        ]
+    },
+    {
+        question: "4. What is the duration of a natural elongation (Mad Asli)?",
+        answers: [
+            { text: "1 Harakat", correct: false },
+            { text: "2 Harakat", correct: true },
+            { text: "4 Harakat", correct: false },
+            { text: "6 Harakat", correct: false }
+        ]
+    },
+    {
+        question: "5. Which of the following is a Qalqalah (echoing) letter?",
+        answers: [
+            { text: "Sin (س)", correct: false },
+            { text: "Lam (ل)", correct: false },
+            { text: "Qaf (ق)", correct: true },
+            { text: "Nun (ن)", correct: false }
+        ]
+    },
+    {
+        question: "6. How many letters trigger the rule of Izhar Halqi (Clear pronunciation from the throat)?",
+        answers: [
+            { text: "4", correct: false },
+            { text: "6", correct: true },
+            { text: "15", correct: false },
+            { text: "2", correct: false }
+        ]
+    },
+    {
+        question: "7. What happens when a Mim Sakinah is followed by another Mim (م)?",
+        answers: [
+            { text: "Izhar Syafawi", correct: false },
+            { text: "Ikhfa Syafawi", correct: false },
+            { text: "Idgham Syafawi", correct: true },
+            { text: "Iqlab", correct: false }
         ]
     }
 ];
@@ -29,6 +74,7 @@ let score = 0;
 function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
+    nextButton.innerText = "Next Question";
     showQuestion();
 }
 
@@ -40,8 +86,11 @@ function showQuestion() {
     currentQuestion.answers.forEach(answer => {
         const button = document.createElement("button");
         button.innerText = answer.text;
-        button.classList.add("btn", "btn-outline-primary");
-        button.addEventListener("click", () => selectAnswer(button, answer));
+        button.classList.add("btn", "btn-outline-success", "text-start", "fw-bold", "py-2");
+        if (answer.correct) {
+            button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer);
         answerButtonsElement.appendChild(button);
     });
 }
@@ -53,16 +102,28 @@ function resetState() {
     }
 }
 
-function selectAnswer(button, answer) {
-    if (answer.correct) {
-        button.classList.add("btn-success");
+function selectAnswer(e) {
+    const selectedButton = e.target;
+    const isCorrect = selectedButton.dataset.correct === "true";
+    
+    if (isCorrect) {
+        selectedButton.classList.remove("btn-outline-success");
+        selectedButton.classList.add("btn-success", "text-white");
         score++;
     } else {
-        button.classList.add("btn-danger");
+        selectedButton.classList.remove("btn-outline-success");
+        selectedButton.classList.add("btn-danger", "text-white");
     }
+
+    // Reveal the correct answer if they guessed wrong, and disable all buttons
     Array.from(answerButtonsElement.children).forEach(button => {
+        if (button.dataset.correct === "true") {
+            button.classList.remove("btn-outline-success");
+            button.classList.add("btn-success", "text-white");
+        }
         button.disabled = true;
     });
+    
     nextButton.style.display = "block";
 }
 
@@ -71,11 +132,17 @@ nextButton.addEventListener("click", () => {
     if (currentQuestionIndex < questions.length) {
         showQuestion();
     } else {
-        questionElement.innerText = `Quiz Finished! Your score: ${score} / ${questions.length}`;
-        nextButton.innerText = "Restart";
-        nextButton.style.display = "block";
-        nextButton.addEventListener("click", startQuiz);
+        showScore();
     }
 });
 
+function showScore() {
+    resetState();
+    questionElement.innerText = `Alhamdulillah! You scored ${score} out of ${questions.length}!`;
+    nextButton.innerText = "Restart Quiz";
+    nextButton.style.display = "block";
+    nextButton.addEventListener("click", startQuiz);
+}
+
+// Initialize the quiz when the file loads
 startQuiz();

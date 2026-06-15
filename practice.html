@@ -64,18 +64,18 @@
                     <li class="nav-item"><a class="nav-link" href="notes.html">Notes</a></li>
                     <li class="nav-item"><a class="nav-link active" href="practice.html">Practice & Quizzes</a></li>
                     <li class="nav-item"><a class="nav-link" href="ebooks.html">E-Books</a></li>
-<li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Discover More
-    </a>
-    <ul class="dropdown-menu shadow-sm" aria-labelledby="navbarDropdown" style="border-top: 3px solid var(--accent-gold);">
-        <li><a class="dropdown-item" href="about.html">About Us</a></li>
-        <li><a class="dropdown-item" href="ustaz-profile.html">Meet Our Instructors</a></li>
-        <li><a class="dropdown-item" href="testmonials.html">Testimonials</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
-    </ul>
-</li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Discover More
+                        </a>
+                        <ul class="dropdown-menu shadow-sm" aria-labelledby="navbarDropdown" style="border-top: 3px solid var(--accent-gold);">
+                            <li><a class="dropdown-item" href="about.html">About Us</a></li>
+                            <li><a class="dropdown-item" href="ustaz-profile.html">Meet Our Instructors</a></li>
+                            <li><a class="dropdown-item" href="testmonials.html">Testimonials</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item"><a class="nav-link btn btn-gold ms-2 px-3" href="registration.html">Register Now</a></li>
                 </ul>
             </div>
@@ -104,50 +104,109 @@
 
         <div class="tab-content practice-box" id="practiceTabsContent">
             
-            <div class="tab-pane fade show active" id="identification">
-                <h4 class="text-success mb-3">Tajwid Rule Identification</h4>
-                <p>Examine the following verse. Identify the tajwid rules applied to the highlighted words.</p>
-                <div class="p-4 bg-light rounded text-center mb-4 border">
-                    <h2 class="text-dark" dir="rtl" lang="ar">مِنْ شَرِّ مَا خَلَقَ</h2>
-                    <p class="text-muted mt-2">Hint: Look at the Nun Sakinah followed by the letter Shin.</p>
-                </div>
-                <button class="btn btn-outline-primary">Reveal Answer: Ikhfa Haqiqi</button>
-            </div>
-
-            <div class="tab-pane fade" id="pronunciation">
-                <h4 class="text-success mb-3">Listen & Repeat: Pronunciation Practice</h4>
-                <p>Listen to the Ustaz and practice your Qalqalah (echoing) sounds.</p>
-                <div class="d-flex align-items-center mb-3 p-3 border rounded">
-                    <div class="me-4">
-                        <h5 dir="rtl" lang="ar">قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ</h5>
-                        <small class="text-muted">Focus on the 'Qaf' at the end.</small>
-                    </div>
-                    <div class="ms-auto">
-                        <audio controls>
-                            <source src="#" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
-                    </div>
+            <!-- 1. Rule Identification Tab (Restored & Active) -->
+            <div class="tab-pane fade show active" id="identification" role="tabpanel">
+                <h4 class="text-success mb-4 border-bottom pb-2">Rule Identification Practice</h4>
+                <p class="mb-4">Read the verses below and identify the hidden Tajwid rules before checking the answers.</p>
+                <div class="alert alert-light border shadow-sm text-end p-4">
+                    <p class="mb-0 fs-3" dir="rtl">قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ</p>
+                    <p class="text-muted small mt-3 text-start"><em>Hint: Look at the last letter. What rule applies when you stop on a Qaf (ق)?</em></p>
                 </div>
             </div>
 
-                        <div class="tab-pane fade" id="worksheets">
+            <!-- 2. Pronunciation Audio Tab -->
+            <div class="tab-pane fade" id="pronunciation" role="tabpanel">
+                <h4 class="text-success mb-4 border-bottom pb-2">Pronunciation Audio Samples</h4>
+                <p class="mb-4">Listen to the correct pronunciation of complex Makharij (emission points) and Tajwid rules. Repeat after the reciter to practice.</p>
+                
+                <div class="row g-4">
+                    <!-- Audio Card 1 -->
+                    <div class="col-md-6">
+                        <div class="card h-100 shadow-sm border-0 border-start border-4 border-success">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="card-title text-dark mb-0 fw-bold">1. Al-Halq (The Throat)</h5>
+                                    <span class="badge bg-success">Makharij</span>
+                                </div>
+                                <p class="text-muted small mb-3">Listen to the pronunciation of letters originating from the throat: ع, غ, ح, خ, هـ, ء</p>
+                                <audio controls class="w-100 rounded" style="height: 40px;">
+                                    <source src="makhraj_throat.mp3" type="audio/mpeg">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Audio Card 2 -->
+                    <div class="col-md-6">
+                        <div class="card h-100 shadow-sm border-0 border-start border-4 border-success">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="card-title text-dark mb-0 fw-bold">2. Qalqalah (The Echo)</h5>
+                                    <span class="badge bg-warning text-dark">Tajwid Rule</span>
+                                </div>
+                                <p class="text-muted small mb-3">Notice the bouncing or echoing sound when pronouncing Sakinah letters: ق, ط, ب, ج, د</p>
+                                <audio controls class="w-100 rounded" style="height: 40px;">
+                                    <source src="qalqalah_echo.mp3" type="audio/mpeg">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Audio Card 3 -->
+                    <div class="col-md-6">
+                        <div class="card h-100 shadow-sm border-0 border-start border-4 border-success">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="card-title text-dark mb-0 fw-bold">3. Ghunnah (Nasalization)</h5>
+                                    <span class="badge bg-warning text-dark">Tajwid Rule</span>
+                                </div>
+                                <p class="text-muted small mb-3">Listen to the 2-harakat nasal sound produced for Nun and Mim with a Shaddah (ّ ).</p>
+                                <audio controls class="w-100 rounded" style="height: 40px;">
+                                    <source src="ghunnah_nasal.mp3" type="audio/mpeg">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Audio Card 4 -->
+                    <div class="col-md-6">
+                        <div class="card h-100 shadow-sm border-0 border-start border-4 border-success">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="card-title text-dark mb-0 fw-bold">4. Heavy vs Light Letters</h5>
+                                    <span class="badge bg-success">Makharij</span>
+                                </div>
+                                <p class="text-muted small mb-3">Compare the heavy (Tafkhim) letter 'ص' with the light (Tarqiq) letter 'س'.</p>
+                                <audio controls class="w-100 rounded" style="height: 40px;">
+                                    <source src="heavy_light.mp3" type="audio/mpeg">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Worksheets Tab -->
+            <div class="tab-pane fade" id="worksheets" role="tabpanel">
                 <h4 class="text-success mb-3">Printable Worksheets</h4>
                 <p>Download these exercises to practice tracing and identifying rules offline.</p>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <li class="list-group-item d-flex justify-content-between align-items-center px-0">
                         Tracing Arabic Letters (Beginner)
-                        <!-- Change button to an 'a' link and add your PDF filename -->
                         <a href="Tracing_Letters.pdf" download class="btn btn-sm btn-outline-success">Download PDF</a>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <li class="list-group-item d-flex justify-content-between align-items-center px-0">
                         Color-Coding Tajwid Rules (Intermediate)
-                        <!-- Change button to an 'a' link and add your PDF filename -->
                         <a href="Color_Tajwid.pdf" download class="btn btn-sm btn-outline-success">Download PDF</a>
                     </li>
                 </ul>
             </div>
-        </div>
+
+        </div> <!-- Closing tag for practiceTabsContent -->
         
         <div class="text-center mt-5">
             <h5 class="mb-3">Ready to test your knowledge?</h5>

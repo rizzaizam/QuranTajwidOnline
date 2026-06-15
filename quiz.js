@@ -127,22 +127,26 @@ function selectAnswer(e) {
     nextButton.style.display = "block";
 }
 
-nextButton.addEventListener("click", () => {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-        showQuestion();
-    } else {
-        showScore();
-    }
-});
-
 function showScore() {
     resetState();
     questionElement.innerText = `Alhamdulillah! You scored ${score} out of ${questions.length}!`;
     nextButton.innerText = "Restart Quiz";
     nextButton.style.display = "block";
-    nextButton.addEventListener("click", startQuiz);
 }
+
+// FIXED: Single event listener that checks if the quiz is over or not
+nextButton.addEventListener("click", () => {
+    if (currentQuestionIndex < questions.length) {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            showQuestion();
+        } else {
+            showScore();
+        }
+    } else {
+        startQuiz();
+    }
+});
 
 // Initialize the quiz when the file loads
 startQuiz();

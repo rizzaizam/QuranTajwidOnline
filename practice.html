@@ -113,13 +113,57 @@
 
         <div class="tab-content practice-box" id="practiceTabsContent">
             
-            <!-- 1. Rule Identification Tab (Restored & Active) -->
+            <!-- 1. Rule Identification Tab -->
             <div class="tab-pane fade show active" id="identification" role="tabpanel">
                 <h4 class="text-success mb-4 border-bottom pb-2">Rule Identification Practice</h4>
                 <p class="mb-4">Read the verses below and identify the hidden Tajwid rules before checking the answers.</p>
-                <div class="alert alert-light border shadow-sm text-end p-4">
-                    <p class="mb-0 fs-3" dir="rtl">قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ</p>
-                    <p class="text-muted small mt-3 text-start"><em>Hint: Look at the last letter. What rule applies when you stop on a Qaf (ق)?</em></p>
+                
+                <div class="row g-4">
+                    
+                    <!-- Practice Item 1 -->
+                    <div class="col-12">
+                        <div class="card border-0 border-start border-4 border-success shadow-sm">
+                            <div class="card-body p-4">
+                                <p class="mb-2 fs-2 text-end" dir="rtl">قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ</p>
+                                <p class="text-muted small"><em>Hint: Look at the last letter. What rule applies when you stop on a Qaf (ق)?</em></p>
+                                
+                                <!-- Reveal Button -->
+                                <button class="btn btn-sm btn-outline-success mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#answer1" aria-expanded="false" aria-controls="answer1">
+                                    Reveal Answer
+                                </button>
+                                
+                                <!-- Hidden Answer -->
+                                <div class="collapse mt-3" id="answer1">
+                                    <div class="alert alert-success mb-0 border-0">
+                                        <strong>Qalqalah Kubra (Strong Echo).</strong> Because the word ends with a Qalqalah letter (ق) and we are stopping on it, the echoing sound is pronounced strongly.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Practice Item 2 -->
+                    <div class="col-12">
+                        <div class="card border-0 border-start border-4 border-success shadow-sm">
+                            <div class="card-body p-4">
+                                <p class="mb-2 fs-2 text-end" dir="rtl">مِن شَرِّ مَا خَلَقَ</p>
+                                <p class="text-muted small"><em>Hint: Look at the Nun Sakinah (نْ) followed by the letter Shin (ش).</em></p>
+                                
+                                <!-- Reveal Button -->
+                                <button class="btn btn-sm btn-outline-success mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#answer2" aria-expanded="false" aria-controls="answer2">
+                                    Reveal Answer
+                                </button>
+                                
+                                <!-- Hidden Answer -->
+                                <div class="collapse mt-3" id="answer2">
+                                    <div class="alert alert-success mb-0 border-0">
+                                        <strong>Ikhfa Haqiqi (Hiding).</strong> The sound of the Nun Sakinah is hidden and held for 2 harakat with nasalization (Ghunnah) before pronouncing the Shin.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 

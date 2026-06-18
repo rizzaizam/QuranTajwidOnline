@@ -325,11 +325,14 @@
     
     <!-- AI Coach Logic -->
     <script>
-        // Mock AI Smart Responses Database
+        // Upgraded Mock AI Database with Keywords
         const aiResponses = {
-            "what is iqlab?": "<b>Iqlab (Changing)</b> occurs when a Nun Sakinah or Tanwin is followed by the letter Ba (ب). The sound changes into a hidden 'Mim' with a 2-harakat Ghunnah (nasal sound). Example: 'Min ba'di' becomes 'Mim-ba'di'.",
-            "how do i pronounce the throat letters?": "The throat letters (<b>Halqi</b>) originate from 3 parts of the throat:<br>1. Bottom (nearest to chest): ء , هـ<br>2. Middle: ع , ح<br>3. Top (nearest to mouth): غ , خ<br>They must be pronounced clearly without blending!",
-            "default": "SubhanAllah, that is an excellent question! As this is an AI Mockup, my database is currently learning. Try clicking one of our preset quick prompts above to see me analyze a real Tajwid rule live!"
+            "hi": "Wa alaikum assalam! I am doing well, Alhamdulillah. Are you ready to learn some Tajwid today?",
+            "hello": "Wa alaikum assalam! I am doing well, Alhamdulillah. Are you ready to learn some Tajwid today?",
+            "assalamualaikum": "Wa alaikum assalam warahmatullah! I am your AI Tajwid assistant. How can I help?",
+            "how are you": "Alhamdulillah, I am functioning perfectly! How is your Quran revision going?",
+            "iqlab": "<b>Iqlab (Changing)</b> occurs when a Nun Sakinah or Tanwin is followed by the letter Ba (ب). The sound changes into a hidden 'Mim' with a 2-harakat Ghunnah (nasal sound). Example: 'Min ba'di' becomes 'Mim-ba'di'.",
+            "throat": "The throat letters (<b>Halqi</b>) originate from 3 parts of the throat:<br>1. Bottom (nearest to chest): ء , هـ<br>2. Middle: ع , ح<br>3. Top (nearest to mouth): غ , خ<br>They must be pronounced clearly without blending!"
         };
 
         function processUserChat() {
@@ -356,13 +359,23 @@
             chatScreen.appendChild(typingDiv);
             chatScreen.scrollTop = chatScreen.scrollHeight; // Scroll down
 
-            // 3. Wait 1.5 seconds, remove typing indicator, show actual reply
+            // 3. Wait 1.5 seconds, then calculate and show reply
             setTimeout(() => {
                 const bubble = document.getElementById("typing-bubble");
                 if (bubble) bubble.remove();
                 
-                const cleanQuery = userText.toLowerCase().replace(/[?.!]/g, '');
-                const botReply = aiResponses[cleanQuery] || aiResponses["default"];
+                // Smart Keyword Matching Logic
+                const cleanQuery = userText.toLowerCase();
+                let botReply = "SubhanAllah, that is an excellent question! As this is an AI Mockup, my database is currently learning. Try asking about 'Iqlab', 'Throat letters', or just say 'Hello'!";
+                
+                // Loop through our database to see if the user's text contains any of our keywords
+                for (const keyword in aiResponses) {
+                    if (cleanQuery.includes(keyword)) {
+                        botReply = aiResponses[keyword];
+                        break; // Stop looking once we find a match
+                    }
+                }
+
                 appendMessage(botReply, "bot");
             }, 1500);
         }
@@ -382,7 +395,6 @@
             
             if (sender === "user") {
                 msgDiv.className = "d-flex align-items-end justify-content-end mb-3";
-                // Updated to use your custom Navy color!
                 msgDiv.innerHTML = `<div class="text-white rounded p-2 px-3 max-w-75 shadow-sm" style="background-color: var(--primary-navy);">${text}</div>`;
             } else {
                 msgDiv.className = "d-flex align-items-start mb-3";

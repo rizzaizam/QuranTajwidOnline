@@ -83,7 +83,7 @@
 
         @media print {
             body { background-image: none; background-color: #fff; }
-            .navbar, .page-header, .dashboard-card, h3, .btn-gold, .text-center { display: none !important; }
+            .navbar, .page-header, .dashboard-card, h3, .btn-gold, .text-center, #login-gateway { display: none !important; }
             .container { width: 100%; max-width: 100%; padding: 0; margin: 0; }
             .certificate-box { border: 10px double #D4AF37; box-shadow: none; margin-top: 50px; }
         }
@@ -135,107 +135,154 @@
         </div>
     </nav>
 
-    <!-- Header Section -->
-    <header class="page-header">
-        <div class="container">
-            <h1 class="fw-bold">Assalamu'alaikum, Mohamad Haris Aizam</h1>
-            <p class="lead">Welcome back to your personalized learning hub. Track your achievements below.</p>
-        </div>
-    </header>
-
-    <div class="container mb-5">
-        <div class="row g-4 mb-5">
-            
-            <!-- BONUS FEATURE 1: Progress Tracker -->
-            <div class="col-md-6">
-                <div class="dashboard-card">
-                    <h4 class="text-success mb-4 border-bottom pb-2">Learning Progress</h4>
+    <!-- SECURE PORTAL GATE MOCKUP -->
+    <div class="container my-5" id="login-gateway">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="card border-0 shadow-sm p-4 text-center" style="border-top: 4px solid var(--accent-gold);">
+                    <h3 class="fw-bold text-dark mb-3">Student Portal Sign-In</h3>
+                    <p class="text-muted small mb-4">Please log in with your credentials to access your personal study logs and certificates.</p>
                     
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between">
-                            <span>Basic Iqra Foundations</span>
-                            <span class="fw-bold text-success">100%</span>
-                        </div>
-                        <div class="progress" style="height: 10px;">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 100%;"></div>
-                        </div>
-                    </div>
-
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between">
-                            <span>Tajwid Rules Module</span>
-                            <span class="fw-bold text-primary">75%</span>
-                        </div>
-                        <div class="progress" style="height: 10px;">
-                            <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" role="progressbar" style="width: 75%;"></div>
-                        </div>
-                    </div>
-
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between">
-                            <span>Makharij Pronunciation</span>
-                            <span class="fw-bold text-warning">40%</span>
-                        </div>
-                        <div class="progress" style="height: 10px;">
-                            <div class="progress-bar bg-warning" role="progressbar" style="width: 40%;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- BONUS FEATURE 2: Daily Practice Planner -->
-            <div class="col-md-6">
-                <div class="dashboard-card border-top border-4 border-success">
-                    <h4 class="text-success mb-4 border-bottom pb-2">Daily Practice Planner</h4>
-                    <p class="small text-muted">Complete your milestones today to maintain your consistency streak.</p>
+                    <div id="login-error-msg" class="alert alert-danger d-none py-2 small"></div>
                     
-                    <ul class="list-group list-group-flush" id="planner-list">
-                        <li class="list-group-item d-flex align-items-center border-0 px-0">
-                            <input class="form-check-input me-3 fs-5" type="checkbox" onchange="toggleTask(this)">
-                            <span class="fs-6">Read 2 pages of the Holy Quran</span>
-                        </li>
-                        <li class="list-group-item d-flex align-items-center border-0 px-0">
-                            <input class="form-check-input me-3 fs-5" type="checkbox" onchange="toggleTask(this)">
-                            <span class="fs-6">Listen to Al-Halq Audio Sample</span>
-                        </li>
-                        <li class="list-group-item d-flex align-items-center border-0 px-0">
-                            <input class="form-check-input me-3 fs-5" type="checkbox" onchange="toggleTask(this)">
-                            <span class="fs-6">Complete the interactive Qalqalah Quiz</span>
-                        </li>
-                    </ul>
+                    <div class="mb-3 text-start">
+                        <label class="form-label small fw-bold">Username</label>
+                        <input type="text" id="username-field" class="form-control" placeholder="Enter username...">
+                    </div>
+                    <div class="mb-4 text-start">
+                        <label class="form-label small fw-bold">Password</label>
+                        <input type="password" id="password-field" class="form-control" placeholder="Enter password...">
+                    </div>
+                    <button class="btn btn-gold w-100 py-2 fw-bold" onclick="validatePortalLogin()">Access Dashboard</button>
                 </div>
             </div>
-        </div>
-
-        <!-- BONUS FEATURE 3: Certificate Mock-up -->
-        <h3 class="fw-bold mb-4 text-center mt-5">Earned Certificates</h3>
-        <div class="certificate-box shadow">
-            <h1 class="cert-title">Certificate of Completion</h1>
-            <p class="lead mt-3 mb-4">This certificate is proudly awarded to</p>
-            <h2 class="text-success fw-bold border-bottom d-inline-block pb-2 px-5 mb-4">Mohamad Haris Aizam Bin Mohd Rizal</h2>
-            <p class="fs-5">For successfully achieving a perfect score and completing the <strong>Basic Iqra Foundations</strong> module with exceptional dedication to Quranic reading rules and clear articulation.</p>
-            
-            <div class="d-flex justify-content-around align-items-end mt-5">
-                <div>
-                    <hr style="width: 150px; border-top: 2px solid #333;">
-                    <p class="mb-0">Ustaz Instructor</p>
-                </div>
-                <div class="cert-seal">PASSED</div>
-                <div>
-                    <hr style="width: 150px; border-top: 2px solid #333;">
-                    <p class="mb-0">Date Awarded</p>
-                </div>
-            </div>
-            
-            <button class="btn btn-gold mt-5 px-4 py-2" onclick="window.print()">Print Verified Certificate</button>
         </div>
     </div>
+
+    <!-- PROTECTED CONTENT WRAPPER (HIDDEN BY DEFAULT) -->
+    <div id="protected-portal-content" class="d-none">
+        <!-- Header Section -->
+        <header class="page-header">
+            <div class="container">
+                <h1 class="fw-bold">Assalamu'alaikum, Mohamad Haris Aizam</h1>
+                <p class="lead">Welcome back to your personalized learning hub. Track your achievements below.</p>
+            </div>
+        </header>
+
+        <div class="container mb-5">
+            <div class="row g-4 mb-5">
+                
+                <!-- BONUS FEATURE 1: Progress Tracker -->
+                <div class="col-md-6">
+                    <div class="dashboard-card">
+                        <h4 class="text-success mb-4 border-bottom pb-2">Learning Progress</h4>
+                        
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>Basic Iqra Foundations</span>
+                                <span class="fw-bold text-success">100%</span>
+                            </div>
+                            <div class="progress" style="height: 10px;">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 100%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>Tajwid Rules Module</span>
+                                <span class="fw-bold text-primary">75%</span>
+                            </div>
+                            <div class="progress" style="height: 10px;">
+                                <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" role="progressbar" style="width: 75%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>Makharij Pronunciation</span>
+                                <span class="fw-bold text-warning">40%</span>
+                            </div>
+                            <div class="progress" style="height: 10px;">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: 40%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BONUS FEATURE 2: Daily Practice Planner -->
+                <div class="col-md-6">
+                    <div class="dashboard-card border-top border-4 border-success">
+                        <h4 class="text-success mb-4 border-bottom pb-2">Daily Practice Planner</h4>
+                        <p class="small text-muted">Complete your milestones today to maintain your consistency streak.</p>
+                        
+                        <ul class="list-group list-group-flush" id="planner-list">
+                            <li class="list-group-item d-flex align-items-center border-0 px-0">
+                                <input class="form-check-input me-3 fs-5" type="checkbox" onchange="toggleTask(this)">
+                                <span class="fs-6">Read 2 pages of the Holy Quran</span>
+                            </li>
+                            <li class="list-group-item d-flex align-items-center border-0 px-0">
+                                <input class="form-check-input me-3 fs-5" type="checkbox" onchange="toggleTask(this)">
+                                <span class="fs-6">Listen to Al-Halq Audio Sample</span>
+                            </li>
+                            <li class="list-group-item d-flex align-items-center border-0 px-0">
+                                <input class="form-check-input me-3 fs-5" type="checkbox" onchange="toggleTask(this)">
+                                <span class="fs-6">Complete the interactive Qalqalah Quiz</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BONUS FEATURE 3: Certificate Mock-up -->
+            <h3 class="fw-bold mb-4 text-center mt-5">Earned Certificates</h3>
+            <div class="certificate-box shadow">
+                <h1 class="cert-title">Certificate of Completion</h1>
+                <p class="lead mt-3 mb-4">This certificate is proudly awarded to</p>
+                <h2 class="text-success fw-bold border-bottom d-inline-block pb-2 px-5 mb-4">Mohamad Haris Aizam Bin Mohd Rizal</h2>
+                <p class="fs-5">For successfully achieving a perfect score and completing the <strong>Basic Iqra Foundations</strong> module with exceptional dedication to Quranic reading rules and clear articulation.</p>
+                
+                <div class="d-flex justify-content-around align-items-end mt-5">
+                    <div>
+                        <hr style="width: 150px; border-top: 2px solid #333;">
+                        <p class="mb-0">Ustaz Instructor</p>
+                    </div>
+                    <div class="cert-seal">PASSED</div>
+                    <div>
+                        <hr style="width: 150px; border-top: 2px solid #333;">
+                        <p class="mb-0">Date Awarded</p>
+                    </div>
+                </div>
+                
+                <button class="btn btn-gold mt-5 px-4 py-2" onclick="window.print()">Print Verified Certificate</button>
+            </div>
+        </div>
+    </div> <!-- End of protected-portal-content -->
 
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Planner Checkbox Interactivity Logic -->
+    <!-- Dashboard and Authorization Logic -->
     <script>
+        // Simulated Account Database (Perfect for assignment evaluation)
+        const portalUser = "harisaizam";
+        const portalPass = "tajwid2026";
+
+        function validatePortalLogin() {
+            const userIn = document.getElementById("username-field").value.trim();
+            const passIn = document.getElementById("password-field").value.trim();
+            const errorDiv = document.getElementById("login-error-msg");
+
+            if (userIn === portalUser && passIn === portalPass) {
+                // Hide gateway and show dashboard
+                document.getElementById("login-gateway").classList.add("d-none");
+                document.getElementById("protected-portal-content").classList.remove("d-none");
+            } else {
+                // Show error message
+                errorDiv.classList.remove("d-none");
+                errorDiv.innerText = "Invalid credentials. Please try again.";
+            }
+        }
+
         function toggleTask(checkbox) {
             const taskText = checkbox.nextElementSibling;
             if (checkbox.checked) {

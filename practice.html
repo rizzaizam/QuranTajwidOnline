@@ -4,49 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practice Room | QuranTajwidOnline.com</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">   
+<script>
+// Mock AI Smart Responses Database
+const aiResponses = {
+    "what is iqlab?": "<b>Iqlab (Changing)</b> occurs when a Nun Sakinah or Tanwin is followed by the letter Ba (ب). The sound changes into a hidden 'Mim' with a 2-harakat Ghunnah (nasal sound). Example: 'Min ba'di' becomes 'Mim-ba'di'.",
+    "how do i pronounce the throat letters?": "The throat letters (<b>Halqi</b>) originate from 3 parts of the throat:<br>1. Bottom (nearest to chest): ء , هـ<br>2. Middle: ع , ح<br>3. Top (nearest to mouth): غ , خ<br>They must be pronounced clearly without blending!",
+    "default": "SubhanAllah, that is an excellent question! As this is an AI Mockup, my database is currently learning. Try clicking one of our preset quick prompts above to see me analyze a real Tajwid rule live!"
+};
+
+function processUserChat() {
+    const inputField = document.getElementById("chat-input");
+    const userText = inputField.value.trim();
+    if (!userText) return;
+
+    // 1. Show User Message
+    appendMessage(userText, "user");
+    inputField.value = "";
+
+    // 2. Show "Typing..." Indicator
+    const chatScreen = document.getElementById("chat-screen");
+    const typingDiv = document.createElement("div");
+    typingDiv.className = "d-flex align-items-start mb-3";
+    typingDiv.id = "typing-bubble";
+    typingDiv.innerHTML = `
+        <div class="bg-success text-white rounded p-2 px-3 max-w-75 shadow-sm">
+            <small class="fw-bold d-block mb-1" style="color: var(--accent-gold);">✨ AI Ustaz Coach</small>
+            <div class="typing-indicator">
+                <span></span><span></span><span></span>
+            </div>
+        </div>`;
+    chatScreen.appendChild(typingDiv);
+    chatScreen.scrollTop = chatScreen.scrollHeight; // Scroll down
+
+    // 3. Wait 1.5 seconds, remove typing indicator, show actual reply
+    setTimeout(() => {
+        document.getElementById("typing-bubble").remove();
+        const cleanQuery = userText.toLowerCase().replace(/[?.!]/g, '');
+        const botReply = aiResponses[cleanQuery] || aiResponses["default"];
+        appendMessage(botReply, "bot");
+    }, 1500);
+}
+
+function sendQuickPrompt(promptText) {
+    document.getElementById("chat-input").value = promptText;
+    processUserChat();
+}
+
+function handleKeyPress(e) {
+    if (e.key === "Enter") processUserChat();
+}
+
+function appendMessage(text, sender) {
+    const chatScreen = document.getElementById("chat-screen");
+    const msgDiv = document.createElement("div");
     
-    <style>
-        :root {
-            --primary-navy: #1B3A4B;
-            --accent-gold: #D4AF37;
-            --soft-beige: #F5F5DC;
-            --calm-green: #2E8B57;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--soft-beige);
-            background-image: url('https://www.transparenttextures.com/patterns/arabesque.png'); 
-            color: #333;
-        }
-
-        .navbar-custom { background-color: var(--primary-navy); }
-        .navbar-custom .navbar-brand, .navbar-custom .nav-link { color: #ffffff; }
-        .navbar-custom .nav-link:hover { color: var(--accent-gold); }
-
-        .page-header {
-            background-color: var(--primary-navy);
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .nav-tabs .nav-link { color: var(--primary-navy); font-weight: bold; }
-        .nav-tabs .nav-link.active { color: var(--calm-green); border-bottom: 3px solid var(--calm-green); }
-        
-        .practice-box {
-            background-color: white;
-            padding: 30px;
-            border-radius: 0 0 8px 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-top: none;
-        }
-
-        .btn-gold { background-color: var(--accent-gold); color: #fff; border: none; }
-        .btn-gold:hover { background-color: #b5952f; color: #fff; }
-    </style>
+    if (sender === "user") {
+        msgDiv.className = "d-flex align-items-end justify-content-end mb-3";
+        // Updated to use your custom Navy color!
+        msgDiv.innerHTML = `<div class="text-white rounded p-2 px-3 max-w-75 shadow-sm" style="background-color: var(--primary-navy);">${text}</div>`;
+    } else {
+        msgDiv.className = "d-flex align-items-start mb-3";
+        msgDiv.innerHTML = `
+            <div class="bg-success text-white rounded p-2 px-3 max-w-75 shadow-sm">
+                <small class="fw-bold d-block mb-1" style="color: var(--accent-gold);">✨ AI Ustaz Coach</small>
+                ${text}
+            </div>`;
+    }
+    
+    chatScreen.appendChild(msgDiv);
+    chatScreen.scrollTop = chatScreen.scrollHeight; 
+}
+    </script>
 </head>
 <body>
 

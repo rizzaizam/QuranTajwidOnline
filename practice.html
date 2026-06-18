@@ -4,93 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practice Room | QuranTajwidOnline.com</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">   
-<script>
-// Mock AI Smart Responses Database
-const aiResponses = {
-    "what is iqlab?": "<b>Iqlab (Changing)</b> occurs when a Nun Sakinah or Tanwin is followed by the letter Ba (ب). The sound changes into a hidden 'Mim' with a 2-harakat Ghunnah (nasal sound). Example: 'Min ba'di' becomes 'Mim-ba'di'.",
-    "how do i pronounce the throat letters?": "The throat letters (<b>Halqi</b>) originate from 3 parts of the throat:<br>1. Bottom (nearest to chest): ء , هـ<br>2. Middle: ع , ح<br>3. Top (nearest to mouth): غ , خ<br>They must be pronounced clearly without blending!",
-    "default": "SubhanAllah, that is an excellent question! As this is an AI Mockup, my database is currently learning. Try clicking one of our preset quick prompts above to see me analyze a real Tajwid rule live!"
-};
-
-function processUserChat() {
-    const inputField = document.getElementById("chat-input");
-    const userText = inputField.value.trim();
-    if (!userText) return;
-
-    // 1. Show User Message
-    appendMessage(userText, "user");
-    inputField.value = "";
-
-    // 2. Show "Typing..." Indicator
-    const chatScreen = document.getElementById("chat-screen");
-    const typingDiv = document.createElement("div");
-    typingDiv.className = "d-flex align-items-start mb-3";
-    typingDiv.id = "typing-bubble";
-    typingDiv.innerHTML = `
-        <div class="bg-success text-white rounded p-2 px-3 max-w-75 shadow-sm">
-            <small class="fw-bold d-block mb-1" style="color: var(--accent-gold);">✨ AI Ustaz Coach</small>
-            <div class="typing-indicator">
-                <span></span><span></span><span></span>
-            </div>
-        </div>`;
-    chatScreen.appendChild(typingDiv);
-    chatScreen.scrollTop = chatScreen.scrollHeight; // Scroll down
-
-    // 3. Wait 1.5 seconds, remove typing indicator, show actual reply
-    setTimeout(() => {
-        document.getElementById("typing-bubble").remove();
-        const cleanQuery = userText.toLowerCase().replace(/[?.!]/g, '');
-        const botReply = aiResponses[cleanQuery] || aiResponses["default"];
-        appendMessage(botReply, "bot");
-    }, 1500);
-}
-
-function sendQuickPrompt(promptText) {
-    document.getElementById("chat-input").value = promptText;
-    processUserChat();
-}
-
-function handleKeyPress(e) {
-    if (e.key === "Enter") processUserChat();
-}
-
-function appendMessage(text, sender) {
-    const chatScreen = document.getElementById("chat-screen");
-    const msgDiv = document.createElement("div");
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    if (sender === "user") {
-        msgDiv.className = "d-flex align-items-end justify-content-end mb-3";
-        // Updated to use your custom Navy color!
-        msgDiv.innerHTML = `<div class="text-white rounded p-2 px-3 max-w-75 shadow-sm" style="background-color: var(--primary-navy);">${text}</div>`;
-    } else {
-        msgDiv.className = "d-flex align-items-start mb-3";
-        msgDiv.innerHTML = `
-            <div class="bg-success text-white rounded p-2 px-3 max-w-75 shadow-sm">
-                <small class="fw-bold d-block mb-1" style="color: var(--accent-gold);">✨ AI Ustaz Coach</small>
-                ${text}
-            </div>`;
-    }
-    
-    chatScreen.appendChild(msgDiv);
-    chatScreen.scrollTop = chatScreen.scrollHeight; 
-}
-    </script>
+    <style>
+        :root {
+            --primary-navy: #1B3A4B;
+            --accent-gold: #D4AF37;
+            --soft-beige: #F5F5DC;
+            --calm-green: #2E8B57;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--soft-beige);
+            background-image: url('https://www.transparenttextures.com/patterns/arabesque.png'); 
+            color: #333;
+        }
+
+        .navbar-custom { background-color: var(--primary-navy); }
+        .navbar-custom .navbar-brand, .navbar-custom .nav-link { color: #ffffff; }
+        .navbar-custom .nav-link:hover { color: var(--accent-gold); }
+
+        .page-header {
+            background-color: var(--primary-navy);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-tabs .nav-link { color: var(--primary-navy); font-weight: bold; }
+        .nav-tabs .nav-link.active { color: var(--calm-green); border-bottom: 3px solid var(--calm-green); }
+        
+        .practice-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: none;
+        }
+
+        .btn-gold { background-color: var(--accent-gold); color: #fff; border: none; }
+        .btn-gold:hover { background-color: #b5952f; color: #fff; }
+
+        /* AI Typing Animation */
+        .typing-indicator span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-gold);
+            border-radius: 50%;
+            margin: 0 2px;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+        .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+        .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+        
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+    </style>
 </head>
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
-    <!-- SVG Logo Icon -->
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2">
-        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-        <path d="M12 7v14"></path>
-    </svg>
-    <!-- Brand Text -->
-    <span class="fw-bold text-white">Quran<span style="color: #D4AF37;">Tajwid</span>Online</span>
-</a>
+                <!-- SVG Logo Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                    <path d="M12 7v14"></path>
+                </svg>
+                <!-- Brand Text -->
+                <span class="fw-bold text-white">Quran<span style="color: #D4AF37;">Tajwid</span>Online</span>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
             </button>
@@ -292,36 +281,36 @@ function appendMessage(text, sender) {
             </div>
 
             <!-- 4. AI Coach Mockup Tab -->
-<div class="tab-pane fade" id="ai-coach" role="tabpanel">
-    <h4 class="text-success mb-3 border-bottom pb-2">Meet Your AI Tajwid Coach</h4>
-    <p class="text-muted small">Ask our simulated AI Coach any questions about Quran pronunciation or rules for instant guidance.</p>
-    
-    <!-- Chat Box Container -->
-    <div class="card border-0 shadow-sm bg-light" style="height: 400px; display: flex; flex-direction: column;">
-        <!-- Chat Messages Screen -->
-        <div class="card-body p-3 overflow-auto" id="chat-screen" style="flex-grow: 1;">
-            <!-- AI Welcome Message -->
-            <div class="d-flex align-items-start mb-3">
-                <div class="bg-success text-white rounded p-2 px-3 max-w-75 shadow-sm">
-                    <small class="fw-bold d-block text-gold mb-1">✨ AI Ustaz Coach</small>
-                    Assalamualaikum! I am your AI Tajwid assistant. How can I help you perfect your recitation today?
+            <div class="tab-pane fade" id="ai-coach" role="tabpanel">
+                <h4 class="text-success mb-3 border-bottom pb-2">Meet Your AI Tajwid Coach</h4>
+                <p class="text-muted small">Ask our simulated AI Coach any questions about Quran pronunciation or rules for instant guidance.</p>
+                
+                <!-- Chat Box Container -->
+                <div class="card border-0 shadow-sm bg-light" style="height: 400px; display: flex; flex-direction: column;">
+                    <!-- Chat Messages Screen -->
+                    <div class="card-body p-3 overflow-auto" id="chat-screen" style="flex-grow: 1;">
+                        <!-- AI Welcome Message -->
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="bg-success text-white rounded p-2 px-3 max-w-75 shadow-sm">
+                                <small class="fw-bold d-block text-gold mb-1">✨ AI Ustaz Coach</small>
+                                Assalamualaikum! I am your AI Tajwid assistant. How can I help you perfect your recitation today?
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Suggestions Prompts -->
+                    <div class="p-2 border-top bg-white d-flex gap-2 overflow-x-auto">
+                        <button class="btn btn-xs btn-outline-secondary rounded-pill text-nowrap small py-1" onclick="sendQuickPrompt('What is Iqlab?')">"What is Iqlab?"</button>
+                        <button class="btn btn-xs btn-outline-secondary rounded-pill text-nowrap small py-1" onclick="sendQuickPrompt('How do I pronounce the throat letters?')">"Pronouncing Throat Letters"</button>
+                    </div>
+
+                    <!-- Chat Input Bar -->
+                    <div class="card-footer bg-white border-top p-2 d-flex">
+                        <input type="text" id="chat-input" class="form-content form-control border-0 me-2" placeholder="Type a Tajwid question..." onkeypress="handleKeyPress(event)">
+                        <button class="btn btn-success px-4 fw-bold" onclick="processUserChat()">Send</button>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- Quick Suggestions Prompts -->
-        <div class="p-2 border-top bg-white d-flex gap-2 overflow-x-auto">
-            <button class="btn btn-xs btn-outline-secondary rounded-pill text-nowrap small py-1" onclick="sendQuickPrompt('What is Iqlab?')">"What is Iqlab?"</button>
-            <button class="btn btn-xs btn-outline-secondary rounded-pill text-nowrap small py-1" onclick="sendQuickPrompt('How do I pronounce the throat letters?')">"Pronouncing Throat Letters"</button>
-        </div>
-
-        <!-- Chat Input Bar -->
-        <div class="card-footer bg-white border-top p-2 d-flex">
-            <input type="text" id="chat-input" class="form-content form-control border-0 me-2" placeholder="Type a Tajwid question..." onkeypress="handleKeyPress(event)">
-            <button class="btn btn-success px-4 fw-bold" onclick="processUserChat()">Send</button>
-        </div>
-    </div>
-</div>
 
         </div> <!-- Closing tag for practiceTabsContent -->
         
@@ -331,59 +320,82 @@ function appendMessage(text, sender) {
         </div>
     </div>
 
+    <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AI Coach Logic -->
     <script>
-// Mock AI Smart Responses Database
-const aiResponses = {
-    "what is iqlab?": "<b>Iqlab (Changing)</b> occurs when a Nun Sakinah or Tanwin is followed by the letter Ba (ب). The sound changes into a hidden 'Mim' with a 2-harakat Ghunnah (nasal sound). Example: 'Min ba'di' becomes 'Mim-ba'di'.",
-    "how do i pronounce the throat letters?": "The throat letters (<b>Halqi</b>) originate from 3 parts of the throat:<br>1. Bottom (nearest to chest): ء , هـ<br>2. Middle: ع , ح<br>3. Top (nearest to mouth): غ , خ<br>They must be pronounced clearly without blending!",
-    "default": "SubhanAllah, that is an excellent question! As this is an AI Mockup, my database is currently learning. Try clicking one of our preset quick prompts above to see me analyze a real Tajwid rule live!"
-};
+        // Mock AI Smart Responses Database
+        const aiResponses = {
+            "what is iqlab?": "<b>Iqlab (Changing)</b> occurs when a Nun Sakinah or Tanwin is followed by the letter Ba (ب). The sound changes into a hidden 'Mim' with a 2-harakat Ghunnah (nasal sound). Example: 'Min ba'di' becomes 'Mim-ba'di'.",
+            "how do i pronounce the throat letters?": "The throat letters (<b>Halqi</b>) originate from 3 parts of the throat:<br>1. Bottom (nearest to chest): ء , هـ<br>2. Middle: ع , ح<br>3. Top (nearest to mouth): غ , خ<br>They must be pronounced clearly without blending!",
+            "default": "SubhanAllah, that is an excellent question! As this is an AI Mockup, my database is currently learning. Try clicking one of our preset quick prompts above to see me analyze a real Tajwid rule live!"
+        };
 
-function processUserChat() {
-    const inputField = document.getElementById("chat-input");
-    const userText = inputField.value.trim();
-    if (!userText) return;
+        function processUserChat() {
+            const inputField = document.getElementById("chat-input");
+            const userText = inputField.value.trim();
+            if (!userText) return;
 
-    appendMessage(userText, "user");
-    inputField.value = "";
+            // 1. Show User Message
+            appendMessage(userText, "user");
+            inputField.value = "";
 
-    // Simulate "AI is typing..." delay
-    setTimeout(() => {
-        const cleanQuery = userText.toLowerCase().replace(/[?.!]/g, '');
-        const botReply = aiResponses[cleanQuery] || aiResponses["default"];
-        appendMessage(botReply, "bot");
-    }, 800);
-}
+            // 2. Show "Typing..." Indicator
+            const chatScreen = document.getElementById("chat-screen");
+            const typingDiv = document.createElement("div");
+            typingDiv.className = "d-flex align-items-start mb-3";
+            typingDiv.id = "typing-bubble";
+            typingDiv.innerHTML = `
+                <div class="bg-success text-white rounded p-2 px-3 max-w-75 shadow-sm">
+                    <small class="fw-bold d-block mb-1" style="color: var(--accent-gold);">✨ AI Ustaz Coach</small>
+                    <div class="typing-indicator">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>`;
+            chatScreen.appendChild(typingDiv);
+            chatScreen.scrollTop = chatScreen.scrollHeight; // Scroll down
 
-function sendQuickPrompt(promptText) {
-    document.getElementById("chat-input").value = promptText;
-    processUserChat();
-}
+            // 3. Wait 1.5 seconds, remove typing indicator, show actual reply
+            setTimeout(() => {
+                const bubble = document.getElementById("typing-bubble");
+                if (bubble) bubble.remove();
+                
+                const cleanQuery = userText.toLowerCase().replace(/[?.!]/g, '');
+                const botReply = aiResponses[cleanQuery] || aiResponses["default"];
+                appendMessage(botReply, "bot");
+            }, 1500);
+        }
 
-function handleKeyPress(e) {
-    if (e.key === "Enter") processUserChat();
-}
+        function sendQuickPrompt(promptText) {
+            document.getElementById("chat-input").value = promptText;
+            processUserChat();
+        }
 
-function appendMessage(text, sender) {
-    const chatScreen = document.getElementById("chat-screen");
-    const msgDiv = document.createElement("div");
-    
-    if (sender === "user") {
-        msgDiv.className = "d-flex align-items-end justify-content-end mb-3";
-        msgDiv.innerHTML = `<div class="bg-primary text-white rounded p-2 px-3 max-w-75 shadow-sm">${text}</div>`;
-    } else {
-        msgDiv.className = "d-flex align-items-start mb-3";
-        msgDiv.innerHTML = `
-            <div class="bg-success text-white rounded p-2 px-3 max-w-75 shadow-sm">
-                <small class="fw-bold d-block mb-1" style="color: #D4AF37;">✨ AI Ustaz Coach</small>
-                ${text}
-            </div>`;
-    }
-    
-    chatScreen.appendChild(msgDiv);
-    chatScreen.scrollTop = chatScreen.scrollHeight; // Auto scroll to bottom
-}
-</script>
+        function handleKeyPress(e) {
+            if (e.key === "Enter") processUserChat();
+        }
+
+        function appendMessage(text, sender) {
+            const chatScreen = document.getElementById("chat-screen");
+            const msgDiv = document.createElement("div");
+            
+            if (sender === "user") {
+                msgDiv.className = "d-flex align-items-end justify-content-end mb-3";
+                // Updated to use your custom Navy color!
+                msgDiv.innerHTML = `<div class="text-white rounded p-2 px-3 max-w-75 shadow-sm" style="background-color: var(--primary-navy);">${text}</div>`;
+            } else {
+                msgDiv.className = "d-flex align-items-start mb-3";
+                msgDiv.innerHTML = `
+                    <div class="bg-success text-white rounded p-2 px-3 max-w-75 shadow-sm">
+                        <small class="fw-bold d-block mb-1" style="color: var(--accent-gold);">✨ AI Ustaz Coach</small>
+                        ${text}
+                    </div>`;
+            }
+            
+            chatScreen.appendChild(msgDiv);
+            chatScreen.scrollTop = chatScreen.scrollHeight; 
+        }
+    </script>
 </body>
 </html>
